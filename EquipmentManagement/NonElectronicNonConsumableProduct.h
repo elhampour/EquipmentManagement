@@ -7,18 +7,22 @@ using namespace std;
 
 class NonElectronicNonConsumableProduct : public Product {
 public:
-	NonElectronicNonConsumableProduct(int, string, string, string, string, int);
+	NonElectronicNonConsumableProduct(int = 0, string = "", string = "", string = "", string = "", int = 0);
 
 	void setReciverPersonName(string);
 	void setMinimumLifeTime(int);
 
-	string getReciverPersonName();
-	int getMinimumLifeTime();
+	string getReciverPersonName() const;
+	int getMinimumLifeTime()const;
 
 	void print() const;
-
+	void insert();
+	void update();
+	void removeRecord();
+	void printAll();
+	void init();
 private:
-	string reciverPersonName;
+	char reciverPersonName[15];
 	int minimumLifeTime;
 };
 

@@ -20,7 +20,7 @@ public:
 	void update();
 	void removeRecord();
 	void printAll();
-
+	void init();
 private:
 	char reciverPersonName[15];
 	char backupCompanyName[15];

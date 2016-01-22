@@ -9,7 +9,8 @@ void Menu::printMainMenu()
 {
 	cout << "1) Choose product type to manipulate" << endl;
 	cout << "2) List All Products" << endl;
-	cout << "3) Exit" << endl;
+	cout << "3) Initilize All Files" << endl;
+	cout << "4) Exit" << endl;
 	cout << "Please make your choice : " << endl;
 }
 

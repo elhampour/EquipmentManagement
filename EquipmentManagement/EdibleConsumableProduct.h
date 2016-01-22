@@ -20,6 +20,7 @@ public:
 	void update();
 	void removeRecord();
 	void printAll();
+	void init();
 private:
 	char createDate[15];
 	char expireDate[15];

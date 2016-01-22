@@ -20,7 +20,7 @@ void EdibleConsumableProduct::setCreateDate(string cDate) {
 	int length = cDate.size();
 	length = (length < 15 ? length : 14);
 	strncpy_s(createDate, lastNameValue, length);
-	createDate[length] = '\0'; 
+	createDate[length] = '\0';
 }
 
 void EdibleConsumableProduct::setExpireDate(string eDate) {
@@ -28,7 +28,7 @@ void EdibleConsumableProduct::setExpireDate(string eDate) {
 	int length = eDate.size();
 	length = (length < 15 ? length : 14);
 	strncpy_s(expireDate, lastNameValue, length);
-	expireDate[length] = '\0'; 
+	expireDate[length] = '\0';
 }
 
 string EdibleConsumableProduct::getCreateDate() const {
@@ -41,7 +41,7 @@ string EdibleConsumableProduct::getExpireDate() const {
 
 void EdibleConsumableProduct::print() const {
 	Product::print();
-	cout << createDate << "               " << expireDate << "               " << "Edible Consumable" << endl;
+	cout << createDate << "                     " << expireDate << "                     " << "EC" << endl;
 }
 
 void EdibleConsumableProduct::insert() {
@@ -221,12 +221,12 @@ void EdibleConsumableProduct::printAll() {
 	}
 
 	cout <<
-		"Product Id" << "     " <<
-		"Product Name" << "     " <<
-		"Reciver Unit Name" << "     " <<
-		"Manual Description" << "     " <<
-		"Create Date" << "     " <<
-		"Expire Date" << "     " <<
+		"Product Id" << "   " <<
+		"Product Name" << "   " <<
+		"Reciver Unit Name" << "   " <<
+		"Manual Description" << "   " <<
+		"Create Date" << "           " <<
+		"Expire Date" << "           " <<
 		"Type" << endl;
 
 	for (int index = 1; index <= 100; index++)
@@ -242,3 +242,15 @@ void EdibleConsumableProduct::printAll() {
 	}
 }
 
+void EdibleConsumableProduct::init() {
+	ofstream outCredit("EdibleConsumableProduct.dat", ios::binary);
+	if (!outCredit)
+	{
+		cerr << "File could not be opened." << endl;
+		exit(1);
+	}
+	EdibleConsumableProduct blankEdibleConsumableProduct;
+	for (int i = 0; i < 100; i++)
+		outCredit.write(reinterpret_cast<const char *>(&blankEdibleConsumableProduct),
+			sizeof(EdibleConsumableProduct));
+}

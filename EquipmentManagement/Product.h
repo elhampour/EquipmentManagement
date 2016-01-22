@@ -23,6 +23,7 @@ public:
 	virtual void update();
 	virtual void removeRecord();
 	virtual void printAll();
+	virtual void init();
 
 private:
 	int productId;

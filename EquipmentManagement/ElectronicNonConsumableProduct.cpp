@@ -42,7 +42,7 @@ string ElectronicNonConsumableProduct::getBackupCompanyName() const {
 
 void ElectronicNonConsumableProduct::print() const {
 	Product::print();
-	cout << reciverPersonName << "               " << backupCompanyName << "               " << "Electronic Non Consumable" << endl;
+	cout << reciverPersonName << "                     " << backupCompanyName << "                     " << "ENC" << endl;
 }
 
 void ElectronicNonConsumableProduct::insert() {
@@ -222,12 +222,12 @@ void ElectronicNonConsumableProduct::printAll() {
 	}
 
 	cout <<
-		"Product Id" << "     " <<
-		"Product Name" << "     " <<
-		"Reciver Unit Name" << "     " <<
-		"Manual Description" << "     " <<
-		"Reciver Person Name" << "     " <<
-		"Backup Company Name" << "     " <<
+		"Product Id" << "   " <<
+		"Product Name" << "   " <<
+		"Reciver Unit Name" << "   " <<
+		"Manual Description" << "   " <<
+		"Reciver Person Name" << "   " <<
+		"Backup Company Name" << "   " <<
 		"Type" << endl;
 
 	for (int index = 1; index <= 100; index++)
@@ -241,4 +241,17 @@ void ElectronicNonConsumableProduct::printAll() {
 			electronicNonConsumableProduct.print();
 		}
 	}
+}
+
+void ElectronicNonConsumableProduct::init() {
+	ofstream outCredit("ElectronicNonConsumableProduct.dat", ios::binary);
+	if (!outCredit)
+	{
+		cerr << "File could not be opened." << endl;
+		exit(1);
+	}
+	ElectronicNonConsumableProduct electronicNonConsumableProduct;
+	for (int i = 0; i < 100; i++)
+		outCredit.write(reinterpret_cast<const char *>(&electronicNonConsumableProduct),
+			sizeof(ElectronicNonConsumableProduct));
 }

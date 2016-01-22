@@ -134,34 +134,27 @@ int main()
 					bool nonEdibleConsumableProductWhile = true;
 					while (nonEdibleConsumableProductWhile) {
 						system("cls");
-						cout << "Product Type : NonEdibleConsumableProduct" << endl;
-						cout << "Choose your choice :" << endl;
-						cout << "1) Add" << endl;
-						cout << "2) Edit" << endl;
-						cout << "3) Delete" << endl;
-						cout << "4) List" << endl;
-						cout << "5) Back" << endl;
-
-						cout << "Please make your choice : " << endl;
+						menu.printProductMenu("Non Edible Consumable Product");
 						char nonEdibleConsumableProductChoice;
 						cin >> nonEdibleConsumableProductChoice;
-
+						NonEdibleConsumableProduct nonEdibleConsumableProduct;
 						switch (nonEdibleConsumableProductChoice)
 						{
 						case '1': {
-							cout << "1";
+							nonEdibleConsumableProduct.insert();
 							break;
 						}
 						case '2': {
-							cout << "2";
+							nonEdibleConsumableProduct.update();
 							break;
 						}
 						case '3': {
-							cout << "3";
+							nonEdibleConsumableProduct.removeRecord();
 							break;
 						}
 						case '4': {
-							cout << "4";
+							nonEdibleConsumableProduct.printAll();
+							system("pause");
 							break;
 						}
 						case '5': {
@@ -181,34 +174,27 @@ int main()
 					bool nonElectronicNonConsumableProductWhile = true;
 					while (nonElectronicNonConsumableProductWhile) {
 						system("cls");
-						cout << "Product Type : NonElectronicNonConsumableProduct" << endl;
-						cout << "Choose your choice :" << endl;
-						cout << "1) Add" << endl;
-						cout << "2) Edit" << endl;
-						cout << "3) Delete" << endl;
-						cout << "4) List" << endl;
-						cout << "5) Back" << endl;
-
-						cout << "Please make your choice : " << endl;
+						menu.printProductMenu("NonElectronic NonConsumable Product");
 						char nonElectronicNonConsumableProductChoice;
 						cin >> nonElectronicNonConsumableProductChoice;
-
+						NonElectronicNonConsumableProduct nonElectronicNonConsumableProduct;
 						switch (nonElectronicNonConsumableProductChoice)
 						{
 						case '1': {
-							cout << "1";
+							nonElectronicNonConsumableProduct.insert();
 							break;
 						}
 						case '2': {
-							cout << "2";
+							nonElectronicNonConsumableProduct.update();
 							break;
 						}
 						case '3': {
-							cout << "3";
+							nonElectronicNonConsumableProduct.removeRecord();
 							break;
 						}
 						case '4': {
-							cout << "4";
+							nonElectronicNonConsumableProduct.printAll();
+							system("pause");
 							break;
 						}
 						case '5': {
@@ -239,14 +225,33 @@ int main()
 		case '2': {
 			EdibleConsumableProduct showAllEdibleConsumableProduct;
 			ElectronicNonConsumableProduct showAllElectronicNonConsumableProduct;
+			NonEdibleConsumableProduct showALlNonEdibleConsumableProduct;
+			NonElectronicNonConsumableProduct showAllNonElectronicNonConsumableProduct;
 
 			showAllEdibleConsumableProduct.printAll();
 			showAllElectronicNonConsumableProduct.printAll();
+			showALlNonEdibleConsumableProduct.printAll();
+			showAllNonElectronicNonConsumableProduct.printAll();
+
+			system("pause");
+
+			break;
+		}
+		case '3': {
+			EdibleConsumableProduct showAllEdibleConsumableProduct;
+			ElectronicNonConsumableProduct showAllElectronicNonConsumableProduct;
+			NonEdibleConsumableProduct showALlNonEdibleConsumableProduct;
+			NonElectronicNonConsumableProduct showAllNonElectronicNonConsumableProduct;
+
+			showAllEdibleConsumableProduct.init();
+			showAllElectronicNonConsumableProduct.init();
+			showALlNonEdibleConsumableProduct.init();
+			showAllNonElectronicNonConsumableProduct.init();
 
 			system("pause");
 			break;
 		}
-		case '3': {
+		case '4': {
 			return 0;
 			break;
 		}

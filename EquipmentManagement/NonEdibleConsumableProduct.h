@@ -7,16 +7,20 @@ using namespace std;
 
 class NonEdibleConsumableProduct : public Product {
 public:
-	NonEdibleConsumableProduct(int, string, string, string, string);
+	NonEdibleConsumableProduct(int = 0, string = "", string = "", string = "", string = "");
 
 	void setReciverPersonName(string);
 
-	string getReciverPersonName();
+	string getReciverPersonName() const;
 
 	void print() const;
-
+	void insert();
+	void update();
+	void removeRecord();
+	void printAll();
+	void init();
 private:
-	string reciverPersonName;
+	char reciverPersonName[15];
 };
 
 #endif
