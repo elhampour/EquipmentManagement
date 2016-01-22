@@ -17,6 +17,9 @@ public:
 
 	void print() const;
 	void insert();
+	void update();
+	void removeRecord();
+	void printAll();
 private:
 	char createDate[15];
 	char expireDate[15];

@@ -20,6 +20,9 @@ public:
 
 	virtual void print() const;
 	virtual void insert();
+	virtual void update();
+	virtual void removeRecord();
+	virtual void printAll();
 
 private:
 	int productId;

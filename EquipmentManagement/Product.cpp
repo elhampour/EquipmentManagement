@@ -59,12 +59,21 @@ string Product::getManualDescription() const {
 }
 
 void Product::print() const {
-	cout << "Product Id : " << productId
-		<< "\nProduct Name : " << productName
-		<< "\nReciver Unit Name : " << reciverUnitName
-		<< "\nManual Description : " << manualDescription;
+	cout << productId << "              " << productName << "                " << reciverUnitName << "                     " << manualDescription<< "                      ";
 }
 
 void Product::insert() {
+	//to be ovveriden
+}
+
+void Product::update() {
+	//to be ovveriden
+}
+
+void Product::removeRecord() {
+	//to be ovveriden
+}
+
+void Product::printAll() {
 	//to be ovveriden
 }

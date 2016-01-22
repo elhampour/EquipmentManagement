@@ -4,11 +4,11 @@
 using namespace std;
 
 EdibleConsumableProduct::EdibleConsumableProduct(
-	int id, 
+	int id,
 	string name,
-	string rName, 
-	string mDescription, 
-	string cDate, 
+	string rName,
+	string mDescription,
+	string cDate,
 	string eDate) :
 	Product(id, name, rName, mDescription) {
 	setCreateDate(cDate);
@@ -31,7 +31,7 @@ void EdibleConsumableProduct::setExpireDate(string eDate) {
 	expireDate[length] = '\0'; // append null character to lastName
 }
 
-string EdibleConsumableProduct::getCreateDate() const{
+string EdibleConsumableProduct::getCreateDate() const {
 	return createDate;
 }
 
@@ -41,8 +41,7 @@ string EdibleConsumableProduct::getExpireDate() const {
 
 void EdibleConsumableProduct::print() const {
 	Product::print();
-	cout << "\nCreate Date  : " << createDate
-		<< "\nExpire Date : " << expireDate << endl;
+	cout << createDate << "               " << expireDate << "               " << "Edible Consumable" << endl;
 }
 
 void EdibleConsumableProduct::insert() {
@@ -61,7 +60,7 @@ void EdibleConsumableProduct::insert() {
 	outCredit.read(reinterpret_cast<char *>(&edibleConsumableProduct),
 		sizeof(EdibleConsumableProduct));
 
-	if (edibleConsumableProduct.getProductId()==0) {
+	if (edibleConsumableProduct.getProductId() == 0) {
 		EdibleConsumableProduct edibleConsumableProduct(
 			getProductId(),
 			getProductName(),
@@ -71,13 +70,103 @@ void EdibleConsumableProduct::insert() {
 			expireDate);
 
 		outCredit.seekp((getProductId() - 1) * sizeof(EdibleConsumableProduct));
-		outCredit.write(reinterpret_cast< const char * >(&edibleConsumableProduct),
+		outCredit.write(reinterpret_cast<const char *>(&edibleConsumableProduct),
 			sizeof(EdibleConsumableProduct));
 	}
 	else {
 		cerr << "Product #" << edibleConsumableProduct.getProductId() << " already contains information." << endl;
 		system("pause");
 	}
+}
 
-	
+void EdibleConsumableProduct::update() {
+	fstream outCredit("EdibleConsumableProduct.dat", ios::in | ios::out | ios::binary);
+
+	if (!outCredit)
+	{
+		cerr << "File could not be opened." << endl;
+		system("pause");
+		exit(1);
+	}
+
+	outCredit.seekg((getProductId() - 1) * sizeof(EdibleConsumableProduct));
+	EdibleConsumableProduct edibleConsumableProduct;
+	outCredit.read(reinterpret_cast<char *>(&edibleConsumableProduct), sizeof(EdibleConsumableProduct));
+
+	if (edibleConsumableProduct.getProductId() != 0)
+	{
+		outCredit.seekp((getProductId() - 1) * sizeof(EdibleConsumableProduct));
+		EdibleConsumableProduct toupdate(
+			getProductId(),
+			getProductName(),
+			getReciverUnitName(),
+			getManualDescription(),
+			createDate,
+			expireDate);
+		outCredit.write(reinterpret_cast<const char *>(&toupdate),
+			sizeof(EdibleConsumableProduct));
+	}
+	else {
+		cerr << "Product #" << getProductId() << " has no information." << endl;
+		system("pause");
+	}
+}
+
+void EdibleConsumableProduct::removeRecord() {
+	fstream outCredit("EdibleConsumableProduct.dat", ios::in | ios::out | ios::binary);
+
+	if (!outCredit)
+	{
+		cerr << "File could not be opened." << endl;
+		system("pause");
+		exit(1);
+	}
+
+	EdibleConsumableProduct edibleConsumableProduct;
+	outCredit.seekg((getProductId() - 1)*sizeof(EdibleConsumableProduct));
+	outCredit.read(reinterpret_cast<char *>(&edibleConsumableProduct),
+		sizeof(EdibleConsumableProduct));
+
+	if (edibleConsumableProduct.getProductId() != 0) {
+		EdibleConsumableProduct blankEdibleConsumableProduct;
+
+		outCredit.seekp((getProductId() - 1) * sizeof(EdibleConsumableProduct));
+		outCredit.write(reinterpret_cast<const char *>(&blankEdibleConsumableProduct),
+			sizeof(EdibleConsumableProduct));
+	}
+	else {
+		cerr << "Product #" << edibleConsumableProduct.getProductId() << " has no information." << endl;
+		system("pause");
+	}
+}
+
+void EdibleConsumableProduct::printAll() {
+	fstream outCredit("EdibleConsumableProduct.dat", ios::in | ios::out | ios::binary);
+	if (!outCredit)
+	{
+		cerr << "File could not be opened." << endl;
+		system("pause");
+		exit(1);
+	}
+
+	cout <<
+		"Product Id" << "     " <<
+		"Product Name" << "     " <<
+		"Reciver Unit Name" << "     " <<
+		"Manual Description" << "     " <<
+		"Create Date" << "     " <<
+		"Expire Date" << "     " <<
+		"Type" << endl;
+
+	for (int index = 1; index <= 100; index++)
+	{
+		EdibleConsumableProduct edibleConsumableProduct;
+		outCredit.seekg((index - 1)*sizeof(EdibleConsumableProduct));
+		outCredit.read(reinterpret_cast<char *>(&edibleConsumableProduct),
+			sizeof(EdibleConsumableProduct));
+
+		if (edibleConsumableProduct.getProductId() != 0) {
+			edibleConsumableProduct.print();
+		}
+	}
 }
