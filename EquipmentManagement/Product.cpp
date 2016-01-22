@@ -59,7 +59,7 @@ string Product::getManualDescription() const {
 }
 
 void Product::print() const {
-	cout << productId << "            " << productName << "              " << reciverUnitName << "                   " << manualDescription<< "                    ";
+	cout << productId << " " << productName << " " << reciverUnitName << " " << manualDescription<< " ";
 }
 
 void Product::insert() {

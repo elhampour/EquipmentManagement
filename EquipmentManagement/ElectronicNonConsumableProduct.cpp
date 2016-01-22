@@ -42,7 +42,7 @@ string ElectronicNonConsumableProduct::getBackupCompanyName() const {
 
 void ElectronicNonConsumableProduct::print() const {
 	Product::print();
-	cout << reciverPersonName << "                     " << backupCompanyName << "                     " << "ENC" << endl;
+	cout << reciverPersonName << " " << backupCompanyName << " " << "ENC" << endl;
 }
 
 void ElectronicNonConsumableProduct::insert() {
@@ -222,12 +222,12 @@ void ElectronicNonConsumableProduct::printAll() {
 	}
 
 	cout <<
-		"Product Id" << "   " <<
-		"Product Name" << "   " <<
-		"Reciver Unit Name" << "   " <<
-		"Manual Description" << "   " <<
-		"Reciver Person Name" << "   " <<
-		"Backup Company Name" << "   " <<
+		"Product Id" << " " <<
+		"Product Name" << " " <<
+		"Reciver Unit Name" << " " <<
+		"Manual Description" << " " <<
+		"Reciver Person Name" << " " <<
+		"Backup Company Name" << " " <<
 		"Type" << endl;
 
 	for (int index = 1; index <= 100; index++)

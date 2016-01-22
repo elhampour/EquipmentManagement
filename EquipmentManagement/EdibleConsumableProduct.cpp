@@ -41,7 +41,7 @@ string EdibleConsumableProduct::getExpireDate() const {
 
 void EdibleConsumableProduct::print() const {
 	Product::print();
-	cout << createDate << "                     " << expireDate << "                     " << "EC" << endl;
+	cout << createDate << " " << expireDate << " " << "EC" << endl;
 }
 
 void EdibleConsumableProduct::insert() {
@@ -221,12 +221,12 @@ void EdibleConsumableProduct::printAll() {
 	}
 
 	cout <<
-		"Product Id" << "   " <<
-		"Product Name" << "   " <<
-		"Reciver Unit Name" << "   " <<
-		"Manual Description" << "   " <<
-		"Create Date" << "           " <<
-		"Expire Date" << "           " <<
+		"Product Id" << " " <<
+		"Product Name" << " " <<
+		"Reciver Unit Name" << " " <<
+		"Manual Description" << " " <<
+		"Create Date" << " " <<
+		"Expire Date" << " " <<
 		"Type" << endl;
 
 	for (int index = 1; index <= 100; index++)

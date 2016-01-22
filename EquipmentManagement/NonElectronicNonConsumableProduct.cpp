@@ -37,7 +37,7 @@ int NonElectronicNonConsumableProduct::getMinimumLifeTime() const {
 
 void NonElectronicNonConsumableProduct::print() const {
 	Product::print();
-	cout << reciverPersonName << "                     " << minimumLifeTime << "                     " << "NENC" << endl;
+	cout << reciverPersonName << " " << minimumLifeTime << " " << "NENC" << endl;
 }
 
 void NonElectronicNonConsumableProduct::insert() {
@@ -217,12 +217,12 @@ void NonElectronicNonConsumableProduct::printAll() {
 	}
 	
 	cout <<
-		"Product Id" << "   " <<
-		"Product Name" << "   " <<
-		"Reciver Unit Name" << "   " <<
-		"Manual Description" << "   " <<
-		"Reciver Person Name" << "   " <<
-		"Minimum Life Time" << "     " <<
+		"Product Id" << " " <<
+		"Product Name" << " " <<
+		"Reciver Unit Name" << " " <<
+		"Manual Description" << " " <<
+		"Reciver Person Name" << " " <<
+		"Minimum Life Time" << " " <<
 		"Type" << endl;
 
 	for (int index = 1; index <= 100; index++)

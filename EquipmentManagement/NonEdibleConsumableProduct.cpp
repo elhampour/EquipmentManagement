@@ -27,7 +27,7 @@ string NonEdibleConsumableProduct::getReciverPersonName() const{
 
 void NonEdibleConsumableProduct::print() const {
 	Product::print();
-	cout << reciverPersonName << "                                           " << "NEC" << endl;
+	cout << reciverPersonName << " " << "NEC" << endl;
 }
 
 void NonEdibleConsumableProduct::insert() {
@@ -195,11 +195,11 @@ void NonEdibleConsumableProduct::printAll() {
 	}
 
 	cout <<
-		"Product Id" << "   " <<
-		"Product Name" << "   " <<
-		"Reciver Unit Name" << "   " <<
-		"Manual Description" << "   " <<
-		"Reciver Person Name" << "                         " <<
+		"Product Id" << " " <<
+		"Product Name" << " " <<
+		"Reciver Unit Name" << " " <<
+		"Manual Description" << " " <<
+		"Reciver Person Name" << " " <<
 		"Type" << endl;
 
 	for (int index = 1; index <= 100; index++)
