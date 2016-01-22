@@ -3,6 +3,9 @@
 #include <string>
 #include "Menu.h"
 #include "EdibleConsumableProduct.h"
+#include "ElectronicNonConsumableProduct.h"
+#include "NonEdibleConsumableProduct.h"
+#include "NonElectronicNonConsumableProduct.h"
 using namespace std;
 
 //int main() {
@@ -54,26 +57,23 @@ int main()
 						menu.printProductMenu("EdibleConsumableProduct");
 						char edibleConsumableProductChoice;
 						cin >> edibleConsumableProductChoice;
+						EdibleConsumableProduct edibleConsumableProduct;
 						switch (edibleConsumableProductChoice)
 						{
 						case '1': {
-							EdibleConsumableProduct edibleConsumableProduct;
 							edibleConsumableProduct.insert();
 							break;
 						}
 						case '2': {
-							EdibleConsumableProduct edibleConsumableProduct;
 							edibleConsumableProduct.update();
 							break;
 						}
 						case '3': {
-							EdibleConsumableProduct edibleConsumableProduct;
 							edibleConsumableProduct.removeRecord();
 							break;
 						}
 						case '4': {
-							EdibleConsumableProduct showAllEdibleConsumableProduct;
-							showAllEdibleConsumableProduct.printAll();
+							edibleConsumableProduct.printAll();
 							system("pause");
 							break;
 						}
@@ -94,34 +94,27 @@ int main()
 					bool electronicNonConsumableProductWhile = true;
 					while (electronicNonConsumableProductWhile) {
 						system("cls");
-						cout << "Product Type : ElectronicNonConsumableProduct" << endl;
-						cout << "Choose your choice :" << endl;
-						cout << "1) Add" << endl;
-						cout << "2) Edit" << endl;
-						cout << "3) Delete" << endl;
-						cout << "4) List" << endl;
-						cout << "5) Back" << endl;
-
-						cout << "Please make your choice : " << endl;
+						menu.printProductMenu("Electronic Non Consumable Product");
 						char electronicNonConsumableProductChoice;
 						cin >> electronicNonConsumableProductChoice;
-
+						ElectronicNonConsumableProduct electronicNonConsumableProduct;
 						switch (electronicNonConsumableProductChoice)
 						{
 						case '1': {
-							cout << "1";
+							electronicNonConsumableProduct.insert();
 							break;
 						}
 						case '2': {
-							cout << "2";
+							electronicNonConsumableProduct.update();
 							break;
 						}
 						case '3': {
-							cout << "3";
+							electronicNonConsumableProduct.removeRecord();
 							break;
 						}
 						case '4': {
-							cout << "4";
+							electronicNonConsumableProduct.printAll();
+							system("pause");
 							break;
 						}
 						case '5': {
@@ -245,7 +238,10 @@ int main()
 		}
 		case '2': {
 			EdibleConsumableProduct showAllEdibleConsumableProduct;
+			ElectronicNonConsumableProduct showAllElectronicNonConsumableProduct;
+
 			showAllEdibleConsumableProduct.printAll();
+			showAllElectronicNonConsumableProduct.printAll();
 
 			system("pause");
 			break;

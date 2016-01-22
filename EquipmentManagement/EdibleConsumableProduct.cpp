@@ -20,7 +20,7 @@ void EdibleConsumableProduct::setCreateDate(string cDate) {
 	int length = cDate.size();
 	length = (length < 15 ? length : 14);
 	strncpy_s(createDate, lastNameValue, length);
-	createDate[length] = '\0'; // append null character to lastName
+	createDate[length] = '\0'; 
 }
 
 void EdibleConsumableProduct::setExpireDate(string eDate) {
@@ -28,7 +28,7 @@ void EdibleConsumableProduct::setExpireDate(string eDate) {
 	int length = eDate.size();
 	length = (length < 15 ? length : 14);
 	strncpy_s(expireDate, lastNameValue, length);
-	expireDate[length] = '\0'; // append null character to lastName
+	expireDate[length] = '\0'; 
 }
 
 string EdibleConsumableProduct::getCreateDate() const {
@@ -241,3 +241,4 @@ void EdibleConsumableProduct::printAll() {
 		}
 	}
 }
+

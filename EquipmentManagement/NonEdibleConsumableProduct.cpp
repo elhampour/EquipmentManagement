@@ -3,7 +3,11 @@
 using namespace std;
 
 NonEdibleConsumableProduct::NonEdibleConsumableProduct(
-	int id, string name, string rName, string mDescription, string rpName) :
+	int id, 
+	string name, 
+	string rName, 
+	string mDescription, 
+	string rpName) :
 	Product(id, name, rName, mDescription) {
 	setReciverPersonName(rpName);
 }
