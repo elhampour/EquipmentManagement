@@ -1,6 +1,7 @@
 #include "EdibleConsumableProduct.h"
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
 EdibleConsumableProduct::EdibleConsumableProduct(
@@ -41,7 +42,10 @@ string EdibleConsumableProduct::getExpireDate() const {
 
 void EdibleConsumableProduct::print() const {
 	Product::print();
-	cout << createDate << " " << expireDate << " " << "EC" << endl;
+	cout << "Create Date : " << createDate << endl;
+	cout << "Expire Date : " << expireDate << endl;
+	cout << "Type : " << "Edible Consumable Product" << endl;
+	cout << "-------------------------- " << endl;
 }
 
 void EdibleConsumableProduct::insert() {
@@ -219,15 +223,6 @@ void EdibleConsumableProduct::printAll() {
 		system("pause");
 		exit(1);
 	}
-
-	cout <<
-		"Product Id" << " " <<
-		"Product Name" << " " <<
-		"Reciver Unit Name" << " " <<
-		"Manual Description" << " " <<
-		"Create Date" << " " <<
-		"Expire Date" << " " <<
-		"Type" << endl;
 
 	for (int index = 1; index <= 100; index++)
 	{

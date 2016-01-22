@@ -1,6 +1,7 @@
 #include "ElectronicNonConsumableProduct.h"
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
 ElectronicNonConsumableProduct::ElectronicNonConsumableProduct(
@@ -42,7 +43,10 @@ string ElectronicNonConsumableProduct::getBackupCompanyName() const {
 
 void ElectronicNonConsumableProduct::print() const {
 	Product::print();
-	cout << reciverPersonName << " " << backupCompanyName << " " << "ENC" << endl;
+	cout << "Reciver Person Name : " << reciverPersonName << endl;
+	cout << "Backup Company Name : " << backupCompanyName << endl;
+	cout << "Type : " << "Electronic NonConsumable Product" << endl;
+	cout << "-------------------------- " << endl;
 }
 
 void ElectronicNonConsumableProduct::insert() {
@@ -220,15 +224,6 @@ void ElectronicNonConsumableProduct::printAll() {
 		system("pause");
 		exit(1);
 	}
-
-	cout <<
-		"Product Id" << " " <<
-		"Product Name" << " " <<
-		"Reciver Unit Name" << " " <<
-		"Manual Description" << " " <<
-		"Reciver Person Name" << " " <<
-		"Backup Company Name" << " " <<
-		"Type" << endl;
 
 	for (int index = 1; index <= 100; index++)
 	{

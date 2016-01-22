@@ -1,6 +1,7 @@
 #include "NonElectronicNonConsumableProduct.h"
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
 NonElectronicNonConsumableProduct::NonElectronicNonConsumableProduct(
@@ -37,7 +38,10 @@ int NonElectronicNonConsumableProduct::getMinimumLifeTime() const {
 
 void NonElectronicNonConsumableProduct::print() const {
 	Product::print();
-	cout << reciverPersonName << " " << minimumLifeTime << " " << "NENC" << endl;
+	cout << "Reciver Person Name : " << reciverPersonName << endl;
+	cout << "Minimum Life Time : " << minimumLifeTime << endl;
+	cout << "Type : " << "NonElectronic NonConsumable Product" << endl;
+	cout << "-------------------------- " << endl;
 }
 
 void NonElectronicNonConsumableProduct::insert() {
@@ -216,15 +220,6 @@ void NonElectronicNonConsumableProduct::printAll() {
 		exit(1);
 	}
 	
-	cout <<
-		"Product Id" << " " <<
-		"Product Name" << " " <<
-		"Reciver Unit Name" << " " <<
-		"Manual Description" << " " <<
-		"Reciver Person Name" << " " <<
-		"Minimum Life Time" << " " <<
-		"Type" << endl;
-
 	for (int index = 1; index <= 100; index++)
 	{
 		NonElectronicNonConsumableProduct nonElectronicNonConsumableProduct;

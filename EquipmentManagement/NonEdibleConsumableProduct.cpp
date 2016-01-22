@@ -1,6 +1,7 @@
 #include "NonEdibleConsumableProduct.h"
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
 NonEdibleConsumableProduct::NonEdibleConsumableProduct(
@@ -27,7 +28,9 @@ string NonEdibleConsumableProduct::getReciverPersonName() const{
 
 void NonEdibleConsumableProduct::print() const {
 	Product::print();
-	cout << reciverPersonName << " " << "NEC" << endl;
+	cout << "Manual Description : " << reciverPersonName << endl;
+	cout << "Type : " << "NonEdible Consumable Product" << endl;
+	cout << "-------------------------- " << endl;
 }
 
 void NonEdibleConsumableProduct::insert() {
@@ -193,14 +196,6 @@ void NonEdibleConsumableProduct::printAll() {
 		system("pause");
 		exit(1);
 	}
-
-	cout <<
-		"Product Id" << " " <<
-		"Product Name" << " " <<
-		"Reciver Unit Name" << " " <<
-		"Manual Description" << " " <<
-		"Reciver Person Name" << " " <<
-		"Type" << endl;
 
 	for (int index = 1; index <= 100; index++)
 	{

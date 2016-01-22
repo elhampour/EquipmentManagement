@@ -1,5 +1,6 @@
 #include "Product.h"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 Product::Product(int id, string name, string rName, string mDescription) {
@@ -46,7 +47,7 @@ int Product::getProductId() const {
 	return productId;
 }
 
-string Product::getProductName() const{
+string Product::getProductName() const {
 	return productName;
 }
 
@@ -59,7 +60,10 @@ string Product::getManualDescription() const {
 }
 
 void Product::print() const {
-	cout << productId << " " << productName << " " << reciverUnitName << " " << manualDescription<< " ";
+	cout << "ProductId : " << productId << endl;
+	cout << "Product Name : " << productName << endl;
+	cout << "Reciver Unit Name : " << reciverUnitName << endl;
+	cout << "Manual Description : " << manualDescription << endl;
 }
 
 void Product::insert() {
