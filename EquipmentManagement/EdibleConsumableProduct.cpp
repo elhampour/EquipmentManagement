@@ -46,6 +46,38 @@ void EdibleConsumableProduct::print() const {
 
 void EdibleConsumableProduct::insert() {
 
+	cout << "Please fill the needed information!" << endl;
+
+	cout << "Product Id (1 - 100): ";
+	int productId;
+	cin >> productId;
+	setProductId(productId);
+
+	cout << "Product Name : ";
+	string productName;
+	cin >> productName;
+	setProductName(productName);
+
+	cout << "Reciver Unit Name : ";
+	string reciverUnitName;
+	cin >> reciverUnitName;
+	setReciverUnitName(reciverUnitName);
+
+	cout << "Manual Description : ";
+	string manualDescription;
+	cin >> manualDescription;
+	setManualDescription(manualDescription);
+
+	cout << "Create Date : ";
+	string createDate;
+	cin >> createDate;
+	setCreateDate(createDate);
+
+	cout << "Expire Date : ";
+	string expireDate;
+	cin >> expireDate;
+	setExpireDate(expireDate);
+
 	fstream outCredit("EdibleConsumableProduct.dat", ios::in | ios::out | ios::binary);
 
 	if (!outCredit)
@@ -80,6 +112,38 @@ void EdibleConsumableProduct::insert() {
 }
 
 void EdibleConsumableProduct::update() {
+	cout << "Please fill the needed information!" << endl;
+
+	cout << "Product Id (1 - 100): ";
+	int productId;
+	cin >> productId;
+	setProductId(productId);
+
+	cout << "Product Name : ";
+	string productName;
+	cin >> productName;
+	setProductName(productName);
+
+	cout << "Reciver Unit Name : ";
+	string reciverUnitName;
+	cin >> reciverUnitName;
+	setReciverUnitName(reciverUnitName);
+
+	cout << "Manual Description : ";
+	string manualDescription;
+	cin >> manualDescription;
+	setManualDescription(manualDescription);
+
+	cout << "Create Date : ";
+	string createDate;
+	cin >> createDate;
+	setCreateDate(createDate);
+
+	cout << "Expire Date : ";
+	string expireDate;
+	cin >> expireDate;
+	setExpireDate(expireDate);
+
 	fstream outCredit("EdibleConsumableProduct.dat", ios::in | ios::out | ios::binary);
 
 	if (!outCredit)
@@ -113,6 +177,13 @@ void EdibleConsumableProduct::update() {
 }
 
 void EdibleConsumableProduct::removeRecord() {
+	cout << "Please fill the needed information!" << endl;
+
+	cout << "Product Id (1 - 100): ";
+	int productId;
+	cin >> productId;
+	setProductId(productId);
+
 	fstream outCredit("EdibleConsumableProduct.dat", ios::in | ios::out | ios::binary);
 
 	if (!outCredit)

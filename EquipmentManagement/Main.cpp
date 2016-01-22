@@ -26,10 +26,9 @@ int main()
 {
 	while (true) {
 		system("cls");
-		cout << "1) Choose product type to manipulate" << endl;
-		cout << "2) List All Products" << endl;
-		cout << "3) Exit" << endl;
-		cout << "Please make your choice : " << endl;
+
+		Menu menu;
+		menu.printMainMenu();
 
 		char userChoice;
 		cin >> userChoice;
@@ -41,15 +40,8 @@ int main()
 
 			while (productChoiceWhile) {
 				system("cls");
-				cout << "Choose product type to manipulate :" << endl;
-
-				cout << "1) EdibleConsumableProduct" << endl;
-				cout << "2) ElectronicNonConsumableProduct" << endl;
-				cout << "3) NonEdibleConsumableProduct" << endl;
-				cout << "4) NonElectronicNonConsumableProduct" << endl;
-				cout << "5) Back" << endl;
-
-				cout << "Please make your choice : " << endl;
+				menu.printProductTypeMenu();
+				
 				char productChoice;
 				cin >> productChoice;
 
@@ -59,114 +51,29 @@ int main()
 					bool edibleConsumableProductWhile = true;
 					while (edibleConsumableProductWhile) {
 						system("cls");
-						cout << "Product Type : EdibleConsumableProduct" << endl;
-						cout << "Choose your choice :" << endl;
-						cout << "1) Add" << endl;
-						cout << "2) Edit" << endl;
-						cout << "3) Delete" << endl;
-						cout << "4) List" << endl;
-						cout << "5) Back" << endl;
-
-						cout << "Please make your choice : " << endl;
+						menu.printProductMenu("EdibleConsumableProduct");
 						char edibleConsumableProductChoice;
 						cin >> edibleConsumableProductChoice;
-
 						switch (edibleConsumableProductChoice)
 						{
 						case '1': {
-							cout << "Please fill the needed information!" << endl;
-
-							cout << "Product Id (1 - 100): ";
-							int productId;
-							cin >> productId;
-
-							cout << "Product Name : ";
-							string productName;
-							cin >> productName;
-
-							cout << "Reciver Unit Name : ";
-							string reciverUnitName;
-							cin >> reciverUnitName;
-
-							cout << "Manual Description : ";
-							string manualDescription;
-							cin >> manualDescription;
-
-							cout << "Create Date : ";
-							string createDate;
-							cin >> createDate;
-
-							cout << "Expire Date : ";
-							string expireDate;
-							cin >> expireDate;
-
-							EdibleConsumableProduct edibleConsumableProduct(
-								productId,
-								productName,
-								reciverUnitName,
-								manualDescription,
-								createDate,
-								expireDate);
-
+							EdibleConsumableProduct edibleConsumableProduct;
 							edibleConsumableProduct.insert();
 							break;
 						}
 						case '2': {
-							cout << "Please fill the needed information!" << endl;
-
-							cout << "Product Id (1 - 100): ";
-							int productId;
-							cin >> productId;
-
-							cout << "Product Name : ";
-							string productName;
-							cin >> productName;
-
-							cout << "Reciver Unit Name : ";
-							string reciverUnitName;
-							cin >> reciverUnitName;
-
-							cout << "Manual Description : ";
-							string manualDescription;
-							cin >> manualDescription;
-
-							cout << "Create Date : ";
-							string createDate;
-							cin >> createDate;
-
-							cout << "Expire Date : ";
-							string expireDate;
-							cin >> expireDate;
-
-							EdibleConsumableProduct edibleConsumableProduct(
-								productId,
-								productName,
-								reciverUnitName,
-								manualDescription,
-								createDate,
-								expireDate);
-
+							EdibleConsumableProduct edibleConsumableProduct;
 							edibleConsumableProduct.update();
-
 							break;
 						}
 						case '3': {
-							cout << "Please fill the needed information!" << endl;
-
-							cout << "Product Id (1 - 100): ";
-							int productId;
-							cin >> productId;
-
-							EdibleConsumableProduct edibleConsumableProduct(productId);
-
+							EdibleConsumableProduct edibleConsumableProduct;
 							edibleConsumableProduct.removeRecord();
-
 							break;
 						}
 						case '4': {
 							EdibleConsumableProduct showAllEdibleConsumableProduct;
 							showAllEdibleConsumableProduct.printAll();
-
 							system("pause");
 							break;
 						}
@@ -353,111 +260,6 @@ int main()
 		}
 		}
 	}
-
-	/*Menu menu;
-	menu.printMainMenu();
-
-	while (true)
-	{
-		menu.printChoiceMessage();
-
-		char userChoice;
-		cin >> userChoice;
-		switch (userChoice)
-		{
-		case '1':
-		{
-			system("cls");
-
-			menu.printProductChoice();
-			menu.printAddProductMenu();
-			menu.printChoiceMessage();
-
-			char userProductChoice;
-
-			bool productWhile = true;
-			while (productWhile) {
-				cin >> userProductChoice;
-				switch (userProductChoice)
-				{
-				case '1':
-				{
-					cout << "EdibleConsumableProduct" << endl;
-					cout << "Please fill the needed information!" << endl;
-
-					cout << "Product Id (1 - 100): ";
-					int productId;
-					cin >> productId;
-
-					cout << "Product Name : ";
-					string productName;
-					cin >> productName;
-
-					cout << "Reciver Unit Name : ";
-					string reciverUnitName;
-					cin >> reciverUnitName;
-
-					cout << "Manual Description : ";
-					string manualDescription;
-					cin >> manualDescription;
-
-					cout << "Create Date : ";
-					string createDate;
-					cin >> createDate;
-
-					cout << "Expire Date : ";
-					string expireDate;
-					cin >> expireDate;
-
-					EdibleConsumableProduct edibleConsumableProduct(
-						productId,
-						productName,
-						reciverUnitName,
-						manualDescription,
-						createDate,
-						expireDate);
-
-					edibleConsumableProduct.insert();
-
-					system("cls");
-					menu.printProductChoice();
-					menu.printAddProductMenu();
-					menu.printChoiceMessage();
-				}
-				break;
-				case '2':
-					cout << "ElectronicNonConsumableProduct" << endl;
-					break;
-				case '3':
-					cout << "NonEdibleConsumableProduct" << endl;
-					break;
-				case '4':
-					cout << "NonElectronicNonConsumableProduct" << endl;
-					break;
-				case '5':
-					productWhile = false;
-					system("cls");
-					menu.printMainMenu();
-					break;
-				default:
-					cout << "your choice is not right" << endl;
-					break;
-				}
-			}
-			break;
-		}
-		case '2':
-		{
-			break;
-		}
-		case '6':
-			cout << "your choice is 6" << endl;
-			return 0;
-		default:
-			cout << "your choice is not right" << endl;
-			break;
-		}
-	}*/
 
 	return 0;
 }

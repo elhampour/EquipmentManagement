@@ -9,6 +9,9 @@ public:
 	Menu();
 
 	void printMainMenu();
+	void printProductTypeMenu();
+	void printProductMenu(string);
+
 	void printChoiceMessage();
 	void printProductChoice();
 	void printAddProductMenu();

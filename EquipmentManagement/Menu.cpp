@@ -7,12 +7,35 @@ Menu::Menu() {
 
 void Menu::printMainMenu()
 {
-	cout << "1) Add a product" << endl;
-	cout << "2) Store all products to a file - prints.txt" << endl;
-	cout << "6) Exit" << endl;
+	cout << "1) Choose product type to manipulate" << endl;
+	cout << "2) List All Products" << endl;
+	cout << "3) Exit" << endl;
+	cout << "Please make your choice : " << endl;
 }
 
-void Menu::printChoiceMessage() 
+void Menu::printProductTypeMenu()
+{
+	cout << "Choose product type to manipulate :" << endl;
+	cout << "1) EdibleConsumableProduct" << endl;
+	cout << "2) ElectronicNonConsumableProduct" << endl;
+	cout << "3) NonEdibleConsumableProduct" << endl;
+	cout << "4) NonElectronicNonConsumableProduct" << endl;
+	cout << "5) Back" << endl;
+	cout << "Please make your choice : " << endl;
+}
+
+void Menu::printProductMenu(string type) {
+	cout << "Product Type : " << type << endl;
+	cout << "Choose your choice :" << endl;
+	cout << "1) Add" << endl;
+	cout << "2) Edit" << endl;
+	cout << "3) Delete" << endl;
+	cout << "4) List" << endl;
+	cout << "5) Back" << endl;
+	cout << "Please make your choice : " << endl;
+}
+
+void Menu::printChoiceMessage()
 {
 	cout << "Please make your choice : " << endl;
 }
