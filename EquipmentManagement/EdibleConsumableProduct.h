@@ -7,19 +7,19 @@ using namespace std;
 
 class EdibleConsumableProduct : public Product {
 public:
-	EdibleConsumableProduct(int, string, string, string, string, string);
+	EdibleConsumableProduct(int = 0, string = "", string = "", string = "", string = "", string = "");
 
 	void setCreateDate(string);
 	void setExpireDate(string);
 
-	string getCreateDate();
-	string getExpireDate();
+	string getCreateDate() const;
+	string getExpireDate()const;
 
 	void print() const;
-
+	void insert();
 private:
-	string createDate;
-	string expireDate;
+	char createDate[15];
+	char expireDate[15];
 };
 
 #endif

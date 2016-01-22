@@ -5,6 +5,23 @@
 #include "EdibleConsumableProduct.h"
 using namespace std;
 
+//int main() {
+//
+//	ofstream outCredit("EdibleConsumableProduct.dat", ios::binary);
+//		// exit program if ofstream could not open file
+//		if (!outCredit)
+//		{
+//		cerr << "File could not be opened." << endl;
+//		exit(1);
+//		} // end if
+//	EdibleConsumableProduct blankEdibleConsumableProduct; // constructor zeros out each data member
+//		 // output 100 blank records to file
+//		 for (int i = 0; i < 100; i++)
+//		 outCredit.write(reinterpret_cast< const char *>(&blankEdibleConsumableProduct),
+//			 sizeof(EdibleConsumableProduct));
+//	return 0;
+//};
+
 int main()
 {
 	Menu menu;
@@ -38,6 +55,10 @@ int main()
 					cout << "EdibleConsumableProduct" << endl;
 					cout << "Please fill the needed information!" << endl;
 
+					cout << "Product Id (1 - 100): ";
+					int productId;
+					cin >> productId;
+
 					cout << "Product Name : ";
 					string productName;
 					cin >> productName;
@@ -58,8 +79,15 @@ int main()
 					string expireDate;
 					cin >> expireDate;
 
-					EdibleConsumableProduct edibleConsumableProduct(1, productName, reciverUnitName, manualDescription, createDate, expireDate);
-					edibleConsumableProduct.print();
+					EdibleConsumableProduct edibleConsumableProduct(
+						productId, 
+						productName, 
+						reciverUnitName, 
+						manualDescription, 
+						createDate,
+						expireDate);
+
+					edibleConsumableProduct.insert();
 
 					system("cls");
 					menu.printProductChoice();
@@ -86,6 +114,10 @@ int main()
 					break;
 				}
 			}
+			break;
+		}
+		case '2':
+		{
 			break;
 		}
 		case '6':

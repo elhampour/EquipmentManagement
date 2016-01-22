@@ -6,25 +6,26 @@ using namespace std;
 
 class Product {
 public:
-	Product(int, string, string, string);
+	Product(int = 0, string = "", string = "", string = "");
 
 	void setProductId(int);
 	void setProductName(string);
 	void setReciverUnitName(string);
 	void setManualDescription(string);
 
-	int getProductId();
-	string getProductName();
-	string getReciverUnitName();
-	string getManualDescription();
+	int getProductId() const;
+	string getProductName()const;
+	string getReciverUnitName()const;
+	string getManualDescription()const;
 
 	virtual void print() const;
+	virtual void insert();
 
 private:
 	int productId;
-	string productName;
-	string reciverUnitName;
-	string manualDescription;
+	char productName[15];
+	char reciverUnitName[15];
+	char manualDescription[15];
 };
 
 #endif

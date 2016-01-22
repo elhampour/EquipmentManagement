@@ -8,6 +8,7 @@ Menu::Menu() {
 void Menu::printMainMenu()
 {
 	cout << "1) Add a product" << endl;
+	cout << "2) Store all products to a file - prints.txt" << endl;
 	cout << "6) Exit" << endl;
 }
 

@@ -16,32 +16,45 @@ void Product::setProductId(int id)
 
 void Product::setProductName(string name)
 {
-	productName = name;
+	// copy at most 15 characters from string to lastName
+	const char *lastNameValue = name.data();
+	int length = name.size();
+	length = (length < 15 ? length : 14);
+	strncpy_s(productName, lastNameValue, length);
+	productName[length] = '\0'; // append null character to lastName
 }
 
 void Product::setReciverUnitName(string rName)
 {
-	reciverUnitName = rName;
+	const char *lastNameValue = rName.data();
+	int length = rName.size();
+	length = (length < 15 ? length : 14);
+	strncpy_s(reciverUnitName, lastNameValue, length);
+	reciverUnitName[length] = '\0'; // append null character to lastName
 }
 
 void Product::setManualDescription(string mDescription)
 {
-	manualDescription = mDescription;
+	const char *lastNameValue = mDescription.data();
+	int length = mDescription.size();
+	length = (length < 15 ? length : 14);
+	strncpy_s(manualDescription, lastNameValue, length);
+	manualDescription[length] = '\0'; // append null character to lastName
 }
 
-int Product::getProductId() {
+int Product::getProductId() const {
 	return productId;
 }
 
-string Product::getProductName() {
+string Product::getProductName() const{
 	return productName;
 }
 
-string Product::getReciverUnitName() {
+string Product::getReciverUnitName() const {
 	return reciverUnitName;
 }
 
-string Product::getManualDescription() {
+string Product::getManualDescription() const {
 	return manualDescription;
 }
 
@@ -50,4 +63,8 @@ void Product::print() const {
 		<< "\nProduct Name : " << productName
 		<< "\nReciver Unit Name : " << reciverUnitName
 		<< "\nManual Description : " << manualDescription;
+}
+
+void Product::insert() {
+	//to be ovveriden
 }
